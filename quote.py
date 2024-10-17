@@ -21,24 +21,27 @@ creativity = ["Creativity is intelligence having fun.",
 
 print(f'Hello {socket.gethostname()}!')
 status = input('How are you?\n> ')
-if status.lower() in ['good', 'perfect', 'yes']:
+if any(keyword in status.lower() for keyword in ['go', 'per', 'y']):
     os.system('cls')
     print(f'> {status}')
     print('WoW! Good to hear, do you even need motivation?')
     motivation = input('> ')
-    if motivation.lower() == ['y', 'yes', 'ya', 'yy']:
+    if any(keyword in motivation.lower() for keyword in ['y', 'yes', 'ya', 'yy']):
         print('We currently only have 2 category of quotes, which do you think would suit your mood right now?')
         a = input('A quote about not giving up or a quote about creativity?\n> ')
-        if 'givin' in a.lower() or 'give' in a.lower():
+        if any(keyword in a.lower() for keyword in ['givin', 'give']):
             os.system('cls')
             print(random.choice(giveup))
-        elif 'creat' in a.lower():
+            input(' ')
+        if any(keyword in a.lower() for keyword in ['creat']):
             os.system('cls')
             print(random.choice(creativity))
+            input(' ')
         else:
             os.system('cls')
             print('Whoops, this was not an option! I still think you need one, take that!')
             print(random.choice(random.choice([giveup, creativity])))
+            input(' ')
     else:
         print("Oh WoW! You're actually strong! I guess you dont need my help, have a good day!")
         sys.exit(None)
@@ -46,13 +49,16 @@ else:
     os.system('cls')
     print('Oh crapppp! Here, we currently only have 2 category of quotes, which do you think would suit your mood right now?')
     a = input('A quote about not giving up or a quote about creativity?\n> ')
-    if 'givin' in a.lower() or 'give' in a.lower():
+    if any(keyword in a.lower() for keyword in ['givin', 'give']):
         os.system('cls')
         print(random.choice(giveup))
-    elif 'creat' in a.lower() :
+        input(' ')
+    if any(keyword in a.lower() for keyword in ['creat']):
         os.system('cls')
         print(random.choice(creativity))
+        input(' ')
     else:
         os.system('cls')
         print('Whoops, this was not an option! I still think you need one, take that!')
         print(random.choice(random.choice([giveup, creativity])))
+        input(' ')
